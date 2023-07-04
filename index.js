@@ -7,23 +7,15 @@ let now = new Date();
 console.log(now);
 
 function calculateDays() {
-  //получаем значение даты из элемента HTML
-  const birthdayDate = birthday.value;
-  if (birthday.value = '') {
+  const birthdayDate = birthday.value;                         //получаем значение даты из элемента HTML
+  if (isNaN(birthday) === true) {
     mistake.textContent = 'Пожалуйста введите дату рождения';
   } else {
-
-
-    //преобразуем дату в таймстамп
-    const birthdayTimestamp = Date.parse(birthdayDate);
-    //получаем текущий таймстамп
-    const nowTimestamp = Date.now();
-    //получаем разницу в милисекундах
-    let diff = birthdayTimestamp - nowTimestamp;
-    //преобразуем количество милисекунд в дни
-    let resultDay = Math.floor(diff / 86400000); //86400000 - количество миллисекунд в 1 дне
-    //выводим результат на экран 
-    result.textContent = resultDay;
+    const birthdayTimestamp = Date.parse(birthdayDate);       //преобразуем дату в таймстамп
+    const nowTimestamp = Date.now();                         //получаем текущий таймстамп
+    let diff = birthdayTimestamp - nowTimestamp;            //получаем разницу в милисекундах
+    let resultDay = Math.floor(diff / 86400000);           //преобразуем количество милисекунд в дни (86400000 - количество миллисекунд в 1 дне) 
+    result.textContent = resultDay;                       //выводим результат на экран
   }
   input.value = "";
 }
@@ -34,4 +26,3 @@ function cleanMe() {
 
 button.addEventListener('click', calculateDays);
 document.getElementById("input").addEventListener('click', cleanMe);
-
