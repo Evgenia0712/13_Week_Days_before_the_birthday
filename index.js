@@ -8,7 +8,7 @@ console.log(now);
 
 function calculateDays() {
   const birthdayDate = birthday.value;                         //получаем значение даты из элемента HTML
-  if (isNaN(birthday) === true) {
+  if (isNaN(birthdayDate) !== true) {
     mistake.textContent = 'Пожалуйста введите дату рождения';
   } else {
     const birthdayTimestamp = Date.parse(birthdayDate);       //преобразуем дату в таймстамп
@@ -22,6 +22,7 @@ function calculateDays() {
 
 function cleanMe() {
   mistake.textContent = "";
+  result.textContent = '';
 }
 
 button.addEventListener('click', calculateDays);
